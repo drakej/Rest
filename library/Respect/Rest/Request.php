@@ -207,7 +207,7 @@ class Request
                 || $sideRoute->class === '\Exception'
             ) {
                 $sideRoute->exception = $e;
-                return $this->forward($sideRoute);
+                return $sideRoute->runTarget($this->method, $this->params);
             }
         }
     }
@@ -253,8 +253,10 @@ class Request
                 throw $e;
             }
 
+            $possiblyModifiedResponse = $this->processPosRoutines($exceptionResponse);
+
             //Returns whatever the exception routes returned
-            return (string) $exceptionResponse;
+            return (string) $possiblyModifiedResponse;
         }
     }
 
