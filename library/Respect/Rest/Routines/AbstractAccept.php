@@ -7,7 +7,7 @@ use UnexpectedValueException;
 use Respect\Rest\Request;
 
 /** Base class for content-negotiation */
-abstract class AbstractAccept extends AbstractCallbackMediator implements ProxyableBy, ProxyableThrough, Unique , IgnorableFileExtension
+abstract class AbstractAccept extends AbstractCallbackMediator implements ProxyableBy, ProxyableThrough, Unique
 {
 
 
